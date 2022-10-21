@@ -2,6 +2,7 @@
 //adds items to the list
 //strikes out items on double click
 //and deletes by clicking X
+//and can be organized
 
 function newItem(){
     
@@ -17,10 +18,18 @@ function newItem(){
         li.append(inputValue);
     }
 
-    //cross item out by double click
+    //cross item out by click
     function crossOut() {
         li.toggleClass('strike');
     }
 
     $(li).on('click', crossOut);
+
+    //delete button
+    const button = $('button');
+    const deleteButton = $(button).addClass('.delete');
+
+    button.append(li > crossOutButton);
+
+    $(button).on('click', deleteButton);
 }
