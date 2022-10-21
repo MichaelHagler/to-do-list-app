@@ -16,4 +16,11 @@ function newItem(){
         list.append(li);
         li.append(inputValue);
     }
+
+    //cross item out by double click
+    function crossOut() {
+        li.toggleClass('strike');
+    }
+
+    $(li).on('click', crossOut);
 }
