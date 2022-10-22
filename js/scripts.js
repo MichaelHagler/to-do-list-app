@@ -23,13 +23,21 @@ function newItem(){
         li.toggleClass('strike');
     }
 
-    $(li).on('click', crossOut);
+    $(li).on('dblclick', crossOut);
 
     //delete button
-    const button = $('button');
-    const deleteButton = $(button).addClass('.delete');
+    const crossOutButton = $('<crossOutButton></crossOutButton>');
+    crossOutButton.append(document.createTextNode('X'));
+    
+    li.append(crossOutButton);
 
-    button.append(li > crossOutButton);
+    crossOutButton.on('click', deleteListItem);
 
-    $(button).on('click', deleteButton);
+    function deleteListItem() {
+        li.addClass('delete');
+    }
+
+    //reorder the list
+    $('#list').sortable();
+
 }
